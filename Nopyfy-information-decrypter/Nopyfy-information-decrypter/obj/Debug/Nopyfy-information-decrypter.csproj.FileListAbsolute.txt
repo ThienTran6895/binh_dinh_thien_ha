@@ -1,0 +1,11 @@
+D:\Hacker\binh_dinh_thien_ha\Nopyfy-information-decrypter\Nopyfy-information-decrypter\bin\Debug\Nopyfy-information-decrypter.exe.config
+D:\Hacker\binh_dinh_thien_ha\Nopyfy-information-decrypter\Nopyfy-information-decrypter\bin\Debug\Nopyfy-information-decrypter.exe
+D:\Hacker\binh_dinh_thien_ha\Nopyfy-information-decrypter\Nopyfy-information-decrypter\bin\Debug\Nopyfy-information-decrypter.pdb
+D:\Hacker\binh_dinh_thien_ha\Nopyfy-information-decrypter\Nopyfy-information-decrypter\obj\Debug\Nopyfy-information-decrypter.csproj.AssemblyReference.cache
+D:\Hacker\binh_dinh_thien_ha\Nopyfy-information-decrypter\Nopyfy-information-decrypter\obj\Debug\Nopyfy-information-decrypter.csproj.SuggestedBindingRedirects.cache
+D:\Hacker\binh_dinh_thien_ha\Nopyfy-information-decrypter\Nopyfy-information-decrypter\obj\Debug\Nopyfy_information_decrypter.Form1.resources
+D:\Hacker\binh_dinh_thien_ha\Nopyfy-information-decrypter\Nopyfy-information-decrypter\obj\Debug\Nopyfy_information_decrypter.Properties.Resources.resources
+D:\Hacker\binh_dinh_thien_ha\Nopyfy-information-decrypter\Nopyfy-information-decrypter\obj\Debug\Nopyfy-information-decrypter.csproj.GenerateResource.cache
+D:\Hacker\binh_dinh_thien_ha\Nopyfy-information-decrypter\Nopyfy-information-decrypter\obj\Debug\Nopyfy-information-decrypter.csproj.CoreCompileInputs.cache
+D:\Hacker\binh_dinh_thien_ha\Nopyfy-information-decrypter\Nopyfy-information-decrypter\obj\Debug\Nopyfy-information-decrypter.exe
+D:\Hacker\binh_dinh_thien_ha\Nopyfy-information-decrypter\Nopyfy-information-decrypter\obj\Debug\Nopyfy-information-decrypter.pdb
